@@ -1,0 +1,21 @@
+import java.awt.*;
+
+public class CommonConstants {
+
+    /// Frame Config
+
+    public static final Dimension GUI_SIZE = new Dimension(600,760);
+
+    /// Banner Config
+
+    public static final Dimension BANNER_SIZE = new Dimension(GUI_SIZE.width, 50);
+
+    /// task panel config
+
+    public static final Dimension TASKPANEL_SIZE = new Dimension(GUI_SIZE.width - 30,GUI_SIZE.height - 175);
+
+    ///  adding task button config
+
+    public static final Dimension ADDTASK_BUTTON_SIZE =  new Dimension(GUI_SIZE.width, 50);
+
+}

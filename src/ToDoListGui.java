@@ -10,7 +10,7 @@ public class ToDoListGui extends JFrame implements ActionListener {
     private JPanel taskPanel, taskComponentPanel;
 
 
-    public ToDoListGui(){
+    public ToDoListGui() {
         super(" To Do List Application");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setPreferredSize(CommonConstants.GUI_SIZE);
@@ -22,13 +22,13 @@ public class ToDoListGui extends JFrame implements ActionListener {
         addGuiComponent();
     }
 
-    private void addGuiComponent(){
+    private void addGuiComponent() {
 
         /// banner text
 
         JLabel bannerLabel = new JLabel("To Do List");
         bannerLabel.setBounds(
-                (CommonConstants.GUI_SIZE.width - bannerLabel.getPreferredSize().width)/2,
+                (CommonConstants.GUI_SIZE.width - bannerLabel.getPreferredSize().width) / 2,
                 15,
                 CommonConstants.BANNER_SIZE.width,
                 CommonConstants.BANNER_SIZE.height
@@ -40,14 +40,14 @@ public class ToDoListGui extends JFrame implements ActionListener {
 
         /// taskComponentPanel
 
-        taskComponentPanel  = new JPanel();
-        taskComponentPanel.setLayout(new BoxLayout(taskComponentPanel,BoxLayout.Y_AXIS));
+        taskComponentPanel = new JPanel();
+        taskComponentPanel.setLayout(new BoxLayout(taskComponentPanel, BoxLayout.Y_AXIS));
         taskPanel.add(taskComponentPanel);
 
         /// add scrolling to the task panel
 
         JScrollPane scrollPane = new JScrollPane(taskPanel);
-        scrollPane.setBounds(8,70,CommonConstants.GUI_SIZE.width, CommonConstants.GUI_SIZE.height);
+        scrollPane.setBounds(8, 70, CommonConstants.GUI_SIZE.width, CommonConstants.GUI_SIZE.height);
         scrollPane.setMaximumSize(CommonConstants.TASKPANEL_SIZE);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -56,10 +56,9 @@ public class ToDoListGui extends JFrame implements ActionListener {
         /// adding task button
 
         JButton addTaskButton = new JButton("Add Task");
-        addTaskButton.setBounds(-5,CommonConstants.GUI_SIZE.height - 88,
+        addTaskButton.setBounds(-5, CommonConstants.GUI_SIZE.height - 88,
                 CommonConstants.ADDTASK_BUTTON_SIZE.width, CommonConstants.ADDTASK_BUTTON_SIZE.height);
         addTaskButton.addActionListener(this);
-
 
 
         ///  add to frame
@@ -72,6 +71,19 @@ public class ToDoListGui extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        String command = e.getActionCommand();
+        if (command.equalsIgnoreCase("Add Task")) {
+            /// create a task component
+            TaskComponent taskComponent = new TaskComponent(taskComponentPanel);
+            taskComponentPanel.add(taskComponent);
 
+
+            ///  make the task field request focus after creation
+
+            taskComponent.getTaskField().requestFocus();
+            repaint();
+            revalidate();
+
+        }
     }
 }

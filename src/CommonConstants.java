@@ -4,7 +4,7 @@ public class CommonConstants {
 
     /// Frame Config
 
-    public static final Dimension GUI_SIZE = new Dimension(600,760);
+    public static final Dimension GUI_SIZE = new Dimension(540,760);
 
     /// Banner Config
 
@@ -17,5 +17,14 @@ public class CommonConstants {
     ///  adding task button config
 
     public static final Dimension ADDTASK_BUTTON_SIZE =  new Dimension(GUI_SIZE.width, 50);
+
+    /// taskComponent config
+
+    public static final Dimension TASKFIELD_SIZE =  new Dimension((int)(TASKPANEL_SIZE.width * 0.80),50);
+
+    public static final Dimension CHECKBOX_SIZE = new Dimension((int)(TASKFIELD_SIZE.width * 0.05), 50);
+
+    public static final Dimension DELETE_BUTTON_SIZE =  new Dimension((int)(TASKFIELD_SIZE.width * 0.12), 50);
+
 
 }
